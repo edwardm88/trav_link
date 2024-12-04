@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0B8574A0-3165-4355-B199-C2DD122DEB4F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>prj1</RootNamespace>
+    <AssemblyName>prj1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.26.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.26.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.3.8\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="MailKit, Version=4.8.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.4.8.0\lib\net47\MailKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeKit, Version=4.8.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.4.8.0\lib\net47\MimeKit.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=9.0.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.9.0.0\lib\net462\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Formats.Asn1, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Formats.Asn1.8.0.1\lib\net462\System.Formats.Asn1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZstdSharp, Version=0.8.0.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.8.0\lib\net462\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atractions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Atractions.Designer.cs">
+      <DependentUpon>Atractions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Calculs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calculs.Designer.cs">
+      <DependentUpon>Calculs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Flights.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Flights.Designer.cs">
+      <DependentUpon>Flights.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mix.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mix.Designer.cs">
+      <DependentUpon>Mix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRJDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PRJDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stays.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stays.Designer.cs">
+      <DependentUpon>Stays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solutions.Designer.cs">
+      <DependentUpon>Solutions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Taxies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Taxies.Designer.cs">
+      <DependentUpon>Taxies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Warning.Designer.cs">
+      <DependentUpon>Warning.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Atractions.resx">
+      <DependentUpon>Atractions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calculs.resx">
+      <DependentUpon>Calculs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flights.resx">
+      <DependentUpon>Flights.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mix.resx">
+      <DependentUpon>Mix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stays.resx">
+      <DependentUpon>Stays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solutions.resx">
+      <DependentUpon>Solutions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Taxies.resx">
+      <DependentUpon>Taxies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warning.resx">
+      <DependentUpon>Warning.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="PRJDBDataSet.xsc">
+      <DependentUpon>PRJDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PRJDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PRJDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PRJDBDataSet.xss">
+      <DependentUpon>PRJDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\55f49e4d859b5aa38f8dbdf9e23fae31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\457be4431f086631b33dabfe6c98eed3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all5z6vqr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beb8697bb8644d9ab77b0db8515f3a4a-free.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d180e53042c795bd56d3d017ba0660ba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-computer-icons-email-clip-art-cv-5abf68d6acc500.2338126415224936547077.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-computer-icons-google-account-user-profile-iconfin-png-icons-download-profile-5ab0301e32cb90.1777380215214960942081.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-facebook-computer-icons-logo-facebook-icon-5abb9662f0c326.8914343115222431709862.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-globally-harmonized-system-of-classification-and-l-attention-5aca29a01ec372.278638191523198368126.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-taxi-rank-car-computer-icons-unione-radiotaxi-vero-racewerk-motorsports-fahrerlebnisse-5c1204133c0aa8.2783419015446845632459.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a logo with airplane and lugages 1 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a logo with airplane and lugages 1 %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-outline-of-earth-sciences-globe-clip-art-5af3406f0783e7.0552185515258911830308.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112210a261438a67c28b3dabef7cc06b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a91c15f4069323a0220ee31dcc5f1b44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\421518ebcf8781f4bbdfb8423200a274.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-currency-symbol-euro-sign-money-5ae1faf5d5f016.6917814915247592858763.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\australia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brazil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\canada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colombia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\egypt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\france.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\germany.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\india.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\italy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\japan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\koreea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\morocco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new zeeland.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\romania.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\russia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\southAfrica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tanzania.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\euro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Swiss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\locker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cluj1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cluj2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cluj3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cluj4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cluj5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cluj6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cluj7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cluj8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cluj9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cluj10.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cluj11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cluj12.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buc1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buc2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buc3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buc4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buc5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buc6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buc7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buc8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buc9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buc10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buc11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buc12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\madrid1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\madrid2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\madrid3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\madrid4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\madrid5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\madrid6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\madrid7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\madrid8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\madrid9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\madrid10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\madrid11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\madrid12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\london1.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\london2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\london3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\london4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\london5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\london6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\london7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\london8.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\london9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\london10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\london11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\london12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paris1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paris2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paris3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paris4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paris5.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paris6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paris7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paris9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paris10.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paris11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paris12.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paris8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PRJDB.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
